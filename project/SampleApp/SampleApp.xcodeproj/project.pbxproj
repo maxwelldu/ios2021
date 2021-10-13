@@ -15,6 +15,7 @@
 		3EE864EE2716D39900072BF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864ED2716D39900072BF6 /* main.m */; };
 		3EE864F52716DFE900072BF6 /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3EE864F42716DFE900072BF6 /* icon.bundle */; };
 		3EE864F82716EB1A00072BF6 /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864F72716EB1A00072BF6 /* GTVideoViewController.m */; };
+		3EE864FB2716F06300072BF6 /* GTRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864FA2716F06300072BF6 /* GTRecommendViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		3EE864F42716DFE900072BF6 /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
 		3EE864F62716EB1A00072BF6 /* GTVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoViewController.h; sourceTree = "<group>"; };
 		3EE864F72716EB1A00072BF6 /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoViewController.m; sourceTree = "<group>"; };
+		3EE864F92716F06300072BF6 /* GTRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTRecommendViewController.h; sourceTree = "<group>"; };
+		3EE864FA2716F06300072BF6 /* GTRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTRecommendViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				3EE864ED2716D39900072BF6 /* main.m */,
 				3EE864F62716EB1A00072BF6 /* GTVideoViewController.h */,
 				3EE864F72716EB1A00072BF6 /* GTVideoViewController.m */,
+				3EE864F92716F06300072BF6 /* GTRecommendViewController.h */,
+				3EE864FA2716F06300072BF6 /* GTRecommendViewController.m */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 			files = (
 				3EE864E32716D39600072BF6 /* ViewController.m in Sources */,
 				3EE864F82716EB1A00072BF6 /* GTVideoViewController.m in Sources */,
+				3EE864FB2716F06300072BF6 /* GTRecommendViewController.m in Sources */,
 				3EE864DD2716D39600072BF6 /* AppDelegate.m in Sources */,
 				3EE864EE2716D39900072BF6 /* main.m in Sources */,
 				3EE864E02716D39600072BF6 /* SceneDelegate.m in Sources */,

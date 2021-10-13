@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "GTVideoViewController.h"
+#import "GTRecommendViewController.h"
 
 @interface AppDelegate ()
 
@@ -31,12 +32,8 @@
     GTVideoViewController *videoViewController = [[GTVideoViewController alloc] init];
    
     
-    UIViewController *vc3 = [[UIViewController alloc] init];
-    vc3.view.backgroundColor = [UIColor greenColor];
-    vc3.tabBarItem.title = @"推荐";
-    vc3.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/like@2x.png"];
-    vc3.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/like_selected@2x.png"];
-    
+    GTRecommendViewController *vc3 = [[GTRecommendViewController alloc] init];
+
     UIViewController *vc4 = [[UIViewController alloc] init];
     vc4.view.backgroundColor =[ UIColor lightGrayColor];
     vc4.tabBarItem.title = @"我的";
