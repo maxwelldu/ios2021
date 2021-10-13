@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,13 +18,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
     
-    UIViewController *vc1 = [[UIViewController alloc] init];
-    vc1.view.backgroundColor = [UIColor redColor];
-    vc1.tabBarItem.title = @"新闻";
-    vc1.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
-    vc1.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
+    ViewController *vc = [[ViewController alloc] init];
+    
+    UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    navC.tabBarItem.title = @"新闻";
+    navC.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
+    navC.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
     
     UIViewController *vc2 = [[UIViewController alloc] init];
     vc2.view.backgroundColor = [UIColor yellowColor];
@@ -43,7 +47,7 @@
     vc4.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home@2x.png"];
     vc4.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected@2x.png"];
     
-    [tabbarController setViewControllers:@[vc1, vc2, vc3, vc4]];
+    [tabbarController setViewControllers:@[navC, vc2, vc3, vc4]];
     
     self.window.rootViewController = tabbarController;
     [self.window makeKeyAndVisible];
