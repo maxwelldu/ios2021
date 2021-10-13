@@ -7,7 +7,7 @@
 
 #import "GTRecommendViewController.h"
 
-@interface GTRecommendViewController ()
+@interface GTRecommendViewController ()<UIScrollViewDelegate>
 
 @end
 
@@ -29,6 +29,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    scrollView.delegate = self;
     scrollView.backgroundColor = [UIColor lightGrayColor];
     scrollView.showsHorizontalScrollIndicator = NO;
     
@@ -43,6 +44,27 @@
     scrollView.pagingEnabled = YES;
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*5, self.view.bounds.size.height);
     [self.view addSubview:scrollView];
+}
+
+// 监听页面滚动
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    NSLog(@"scrollViewDidScroll - %@", @(scrollView.contentOffset.x));
+}
+
+// 中断一些业务逻辑， 如视频/gif播放
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    NSLog(@"beginDraging");
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    NSLog(@"enddragging");
+}
+
+    // 减速，页面停止时开始逻辑，如视频自动播放
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"begindece");
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"didenddece");
 }
 
 /*
