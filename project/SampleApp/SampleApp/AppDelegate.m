@@ -20,6 +20,7 @@
 
 
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
+    tabbarController.delegate = self;
     
     ViewController *navC = [[ViewController alloc] init];
     navC.tabBarItem.title = @"新闻";
@@ -51,6 +52,10 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    NSLog(@"did select");
 }
 
 @end
