@@ -40,7 +40,7 @@
 @end
 
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDataSource>
 
 @end
 
@@ -64,21 +64,20 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
 
-    TestView *view = [[TestView alloc] init];
-    view.backgroundColor = [UIColor redColor];
-    view.frame = CGRectMake(150, 150, 100, 100);
-    [self.view addSubview:view];
-    
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController)];
-    [view addGestureRecognizer:tapGesture];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.dataSource = self;
+    [self.view addSubview:tableView];
 }
 
-- (void) pushController {
-    UIViewController *viewController = [[UIViewController alloc] init];
-    viewController.view.backgroundColor = [UIColor whiteColor];
-    viewController.navigationItem.title = @"内容";
-    viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
-    [self.navigationController pushViewController:viewController animated:YES];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+    cell.textLabel.text = @"主标题";
+    cell.detailTextLabel.text = @"副标题";
+    cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
+    return cell;
 }
 
 
