@@ -21,10 +21,7 @@
 
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
     
-    ViewController *vc = [[ViewController alloc] init];
-    
-    UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:vc];
-    
+    ViewController *navC = [[ViewController alloc] init];
     navC.tabBarItem.title = @"新闻";
     navC.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
     navC.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
@@ -49,7 +46,9 @@
     
     [tabbarController setViewControllers:@[navC, vc2, vc3, vc4]];
     
-    self.window.rootViewController = tabbarController;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
+    
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
 }
