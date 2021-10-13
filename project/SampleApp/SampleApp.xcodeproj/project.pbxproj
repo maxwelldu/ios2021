@@ -13,6 +13,7 @@
 		3EE864E82716D39900072BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EE864E72716D39900072BF6 /* Assets.xcassets */; };
 		3EE864EB2716D39900072BF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE864E92716D39900072BF6 /* LaunchScreen.storyboard */; };
 		3EE864EE2716D39900072BF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864ED2716D39900072BF6 /* main.m */; };
+		3EE864F52716DFE900072BF6 /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3EE864F42716DFE900072BF6 /* icon.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		3EE864EA2716D39900072BF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EE864EC2716D39900072BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EE864ED2716D39900072BF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3EE864F42716DFE900072BF6 /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		3EE864DA2716D39600072BF6 /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				3EE864F42716DFE900072BF6 /* icon.bundle */,
 				3EE864DB2716D39600072BF6 /* AppDelegate.h */,
 				3EE864DC2716D39600072BF6 /* AppDelegate.m */,
 				3EE864DE2716D39600072BF6 /* SceneDelegate.h */,
@@ -131,6 +134,7 @@
 			files = (
 				3EE864EB2716D39900072BF6 /* LaunchScreen.storyboard in Resources */,
 				3EE864E82716D39900072BF6 /* Assets.xcassets in Resources */,
+				3EE864F52716DFE900072BF6 /* icon.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
