@@ -34,6 +34,11 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+// 父组件的delegate也可以实现
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"scroll");
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 20;
 }
