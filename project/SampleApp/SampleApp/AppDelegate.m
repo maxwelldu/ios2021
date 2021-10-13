@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "GTVideoViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,11 +28,8 @@
     navC.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
     navC.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
     
-    UIViewController *vc2 = [[UIViewController alloc] init];
-    vc2.view.backgroundColor = [UIColor yellowColor];
-    vc2.tabBarItem.title = @"视频";
-    vc2.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
-    vc2.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/video_selected@2x.png"];
+    GTVideoViewController *videoViewController = [[GTVideoViewController alloc] init];
+   
     
     UIViewController *vc3 = [[UIViewController alloc] init];
     vc3.view.backgroundColor = [UIColor greenColor];
@@ -45,7 +43,7 @@
     vc4.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home@2x.png"];
     vc4.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected@2x.png"];
     
-    [tabbarController setViewControllers:@[navC, vc2, vc3, vc4]];
+    [tabbarController setViewControllers:@[navC, videoViewController, vc3, vc4]];
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
     
