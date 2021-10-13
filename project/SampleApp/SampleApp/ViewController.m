@@ -7,58 +7,12 @@
 
 #import "ViewController.h"
 
-@interface TestView : UIView
-
-@end
-
-@implementation TestView
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
-//1
-- (void)willMoveToSuperview:(UIView *)newSuperview {
-    [super willMoveToSuperview:newSuperview];
-}
-//2
-- (void)didMoveToSuperview {
-    [super didMoveToSuperview];
-}
-//3
-- (void)willMoveToWindow:(UIWindow *)newWindow {
-    [super willMoveToWindow:newWindow];
-}
-//4
-- (void)didMoveToWindow {
-    [super didMoveToWindow];
-}
-
-@end
-
-
-@interface ViewController ()<UITableViewDataSource>
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
 @implementation ViewController
 
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-}
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-}
-- (void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,7 +20,18 @@
 
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     tableView.dataSource = self;
+    tableView.delegate = self;
     [self.view addSubview:tableView];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
