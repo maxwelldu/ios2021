@@ -12,6 +12,7 @@
 
 @property(nonatomic, strong, readwrite) WKWebView *webview;
 @property(nonatomic, strong, readwrite) UIProgressView *progressView;
+@property(nonatomic, copy, readwrite)NSString *articleUrl;
 
 @end
 
@@ -20,6 +21,14 @@
 - (void)dealloc
 {
     [self.webview removeObserver:self forKeyPath:@"estimatedProgress"];
+}
+
+- (instancetype)initWithUrlString:(NSString *)urlString {
+    self = [super init];
+    if (self) {
+        self.articleUrl = urlString;
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
@@ -36,7 +45,7 @@
         self.progressView;
     })];
     
-    [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jianshu.com/p/d3c8ba672760"]]];
+    [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.articleUrl]]];
     
     [self.webview addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
 }

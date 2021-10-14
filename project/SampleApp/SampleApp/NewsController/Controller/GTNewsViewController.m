@@ -10,6 +10,7 @@
 #import "GTDetailViewController.h"
 #import "GTDeleteCellView.h"
 #import "GTListLoader.h"
+#import "GTListItem.h"
 
 @interface GTNewsViewController ()<UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
 @property(nonatomic, strong, readwrite)UITableView *tableView;
@@ -54,7 +55,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    GTDetailViewController *vc = [[GTDetailViewController alloc] init];
+    GTListItem *item = [self.dataArray objectAtIndex:indexPath.row];
+    GTDetailViewController *vc = [[GTDetailViewController alloc] initWithUrlString:item.articleUrl];
     vc.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -82,10 +84,10 @@
 
 - (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton {
 //    GTDeleteCellView *view = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
-//    
+//
 //    // 将cell的坐标系转换为整个窗口的坐标系
 //    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
-//    
+//
 //    // 因为是block, 处理一下循环引用的问题
 //    __weak typeof(self)wself = self;
 //    [view showDeleteViewFromPoint:rect.origin clickBlock:^{
