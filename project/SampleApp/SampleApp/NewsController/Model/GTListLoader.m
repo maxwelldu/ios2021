@@ -23,7 +23,11 @@
     
     NSURLRequest *listRequest = [NSURLRequest requestWithURL:listURL];
     NSURLSession *session = [NSURLSession sharedSession];
+    
+    __weak typeof(self) weakSelf = self;
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:listURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        __strong typeof(self) strongSelf = weakSelf;
+        
         NSError *jsonError;
         id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
         
@@ -36,6 +40,8 @@
             [listItemArray addObject:listItem];
         }
         
+        [weakSelf _archiveListDataWithArray:listItemArray.copy];
+        
         // 希望所有的回包都是在主线程
         dispatch_async(dispatch_get_main_queue(), ^{
             if (finishBlock) {
@@ -44,11 +50,9 @@
         });
     }];
     [dataTask resume];
-    
-    [self _getSandBoxPath];
 }
 
-- (void) _getSandBoxPath {
+- (void) _archiveListDataWithArray:(NSArray<GTListItem *> *)array {
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cachePath = [pathArray firstObject];
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -59,25 +63,31 @@
     [fileManager createDirectoryAtPath:dataPath withIntermediateDirectories:YES attributes:nil error:&createError];
     
     // 创建文件
-    NSData *listData = [@"abc123" dataUsingEncoding:NSUTF8StringEncoding];
+//    NSData *listData = [@"abc" dataUsingEncoding:NSUTF8StringEncoding];
+    
     NSString *listDataPath = [dataPath stringByAppendingPathComponent:@"list"];
+    
+    //序列化
+    NSData *listData = [NSKeyedArchiver archivedDataWithRootObject:array requiringSecureCoding:YES error:nil];
     [fileManager createFileAtPath:listDataPath contents:listData attributes:nil];
     
-    BOOL fileExist = [fileManager fileExistsAtPath:listDataPath];
+    // 反序列化
+    NSData *readListData = [fileManager contentsAtPath:listDataPath];
+    __unused id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:readListData error:nil];
+    
+//    BOOL fileExist = [fileManager fileExistsAtPath:listDataPath];
     
     // 删除
 //    if (fileExist) {
 //        [fileManager removeItemAtPath:listDataPath error:nil];
 //    }
     
-    NSLog(@"");
-    
-    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:listDataPath];
-    [fileHandler seekToEndOfFile];
-    [fileHandler writeData:[@"def" dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    [fileHandler synchronizeFile];
-    [fileHandler closeFile];
+//    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:listDataPath];
+//    [fileHandler seekToEndOfFile];
+//    [fileHandler writeData:[@"def" dataUsingEncoding:NSUTF8StringEncoding]];
+//
+//    [fileHandler synchronizeFile];
+//    [fileHandler closeFile];
     
 }
 
