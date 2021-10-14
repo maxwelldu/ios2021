@@ -75,6 +75,10 @@
     NSData *readListData = [fileManager contentsAtPath:listDataPath];
     __unused id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:readListData error:nil];
     
+    [[NSUserDefaults standardUserDefaults] setObject:listData forKey:@"listData"];
+    NSData *testListData = [[NSUserDefaults standardUserDefaults] dataForKey:@"listData"];
+    id unarchiveObj2 = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:testListData error:nil];
+    
 //    BOOL fileExist = [fileManager fileExistsAtPath:listDataPath];
     
     // 删除
@@ -88,7 +92,7 @@
 //
 //    [fileHandler synchronizeFile];
 //    [fileHandler closeFile];
-    
+    NSLog(@"");
 }
 
 @end
