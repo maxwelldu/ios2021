@@ -49,8 +49,36 @@
 }
 
 - (void) _getSandBoxPath {
-    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [pathArray firstObject];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    // 创建文件夹
+    NSString *dataPath = [cachePath stringByAppendingPathComponent:@"GTData"];
+    NSError *createError;
+    [fileManager createDirectoryAtPath:dataPath withIntermediateDirectories:YES attributes:nil error:&createError];
+    
+    // 创建文件
+    NSData *listData = [@"abc123" dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *listDataPath = [dataPath stringByAppendingPathComponent:@"list"];
+    [fileManager createFileAtPath:listDataPath contents:listData attributes:nil];
+    
+    BOOL fileExist = [fileManager fileExistsAtPath:listDataPath];
+    
+    // 删除
+//    if (fileExist) {
+//        [fileManager removeItemAtPath:listDataPath error:nil];
+//    }
+    
     NSLog(@"");
+    
+    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:listDataPath];
+    [fileHandler seekToEndOfFile];
+    [fileHandler writeData:[@"def" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [fileHandler synchronizeFile];
+    [fileHandler closeFile];
+    
 }
 
 @end
