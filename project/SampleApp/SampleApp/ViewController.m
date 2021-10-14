@@ -9,7 +9,7 @@
 #import "GTNormalTableViewCell.h"
 #import "GTDetailViewController.h"
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
 
 @end
 
@@ -50,9 +50,13 @@
     if (!cell) {
         cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
     }
+    cell.delegate = self;
     [cell layoutTableViewCell];
     return cell;
 }
 
+- (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton {
+    NSLog(@"");
+}
 
 @end

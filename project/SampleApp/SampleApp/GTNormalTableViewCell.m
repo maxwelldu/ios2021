@@ -82,7 +82,10 @@
 }
 
 - (void) deleteButtonClick {
-    NSLog(@"deletebuttonclick");
+    // 由于没有设置为必须实现，所以方法也判断一下是否可响应
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tableViewCell:clickDeleteButton:)]) {
+        [self.delegate tableViewCell:self clickDeleteButton:self.deleteButton];
+    }
 }
 
 @end
