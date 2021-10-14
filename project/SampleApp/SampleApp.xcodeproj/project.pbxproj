@@ -19,6 +19,7 @@
 		3EE864FE2716F46000072BF6 /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864FD2716F46000072BF6 /* GTNormalTableViewCell.m */; };
 		3EE865012716FD6000072BF6 /* GTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE865002716FD6000072BF6 /* GTDetailViewController.m */; };
 		3EE865042717D3E400072BF6 /* GTDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE865032717D3E400072BF6 /* GTDeleteCellView.m */; };
+		3EE8650A2717E66F00072BF6 /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE865092717E66F00072BF6 /* GTListLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		3EE865022717D3E400072BF6 /* GTDeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDeleteCellView.h; sourceTree = "<group>"; };
 		3EE865032717D3E400072BF6 /* GTDeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDeleteCellView.m; sourceTree = "<group>"; };
 		3EE865052717E2B200072BF6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3EE865082717E66F00072BF6 /* GTListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTListLoader.h; sourceTree = "<group>"; };
+		3EE865092717E66F00072BF6 /* GTListLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListLoader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,7 @@
 		3EE864DA2716D39600072BF6 /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				3EE8650B2717E68000072BF6 /* loader */,
 				3EE865062717E3B000072BF6 /* NewsController */,
 				3EE864F42716DFE900072BF6 /* icon.bundle */,
 				3EE864DB2716D39600072BF6 /* AppDelegate.h */,
@@ -117,6 +121,15 @@
 				3EE865002716FD6000072BF6 /* GTDetailViewController.m */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		3EE8650B2717E68000072BF6 /* loader */ = {
+			isa = PBXGroup;
+			children = (
+				3EE865082717E66F00072BF6 /* GTListLoader.h */,
+				3EE865092717E66F00072BF6 /* GTListLoader.m */,
+			);
+			path = loader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +206,7 @@
 				3EE864FE2716F46000072BF6 /* GTNormalTableViewCell.m in Sources */,
 				3EE864E32716D39600072BF6 /* GTNewsViewController.m in Sources */,
 				3EE864F82716EB1A00072BF6 /* GTVideoViewController.m in Sources */,
+				3EE8650A2717E66F00072BF6 /* GTListLoader.m in Sources */,
 				3EE864FB2716F06300072BF6 /* GTRecommendViewController.m in Sources */,
 				3EE864DD2716D39600072BF6 /* AppDelegate.m in Sources */,
 				3EE864EE2716D39900072BF6 /* main.m in Sources */,
