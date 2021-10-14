@@ -58,7 +58,12 @@
 
 - (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton {
     GTDeleteCellView *view = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
-    [view showDeleteView];
+    
+    // 将cell的坐标系转换为整个窗口的坐标系
+    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
+    [view showDeleteViewFromPoint:rect.origin clickBlock:^{
+        NSLog(@"");
+    }];
 }
 
 @end

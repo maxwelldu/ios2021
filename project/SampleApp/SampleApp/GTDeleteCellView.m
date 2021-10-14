@@ -11,7 +11,7 @@
 
 @property(nonatomic, strong, readwrite)UIView *backgroundView;
 @property(nonatomic, strong, readwrite)UIButton *deleteButton;
-
+@property(nonatomic, copy, readwrite)dispatch_block_t deleteBlock;
 
 @end
 
@@ -42,7 +42,11 @@
 }
 
 // 此组件是独立的组件，将其放到window上面
-- (void)showDeleteView {
+- (void)showDeleteViewFromPoint:(CGPoint)point clickBlock:(dispatch_block_t)clickBlock{
+    // 设置展示的位置从点击的当前位置开始
+    _deleteButton.frame = CGRectMake(point.x, point.y, 0, 0);
+    _deleteBlock = [clickBlock copy];
+    
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     // 最简单的动画
 //    [UIView animateWithDuration:1.f animations:^{
@@ -63,6 +67,9 @@
 }
 
 - (void)_clickButton {
+    if (_deleteBlock) {
+        _deleteBlock();
+    }
     [self removeFromSuperview];
 }
 
