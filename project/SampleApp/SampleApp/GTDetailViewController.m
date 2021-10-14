@@ -10,22 +10,38 @@
 
 @interface GTDetailViewController ()<WKNavigationDelegate>
 
-@property(nonnull, strong, readwrite) WKWebView *webview;
+@property(nonatomic, strong, readwrite) WKWebView *webview;
+@property(nonatomic, strong, readwrite) UIProgressView *progressView;
 
 @end
 
 @implementation GTDetailViewController
 
+- (void)dealloc
+{
+    [self.webview removeObserver:self forKeyPath:@"estimatedProgress"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.view addSubview:({
-        self.webview = [[WKWebView alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height-80)];
+        self.webview = [[WKWebView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height-88)];
         self.webview.navigationDelegate = self;
         self.webview;
     })];
+    [self.view addSubview:({
+        //有2像素的问题,88+2
+        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 88+2, 375, 20)];
+        self.progressView;
+    })];
     
-    [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://time.geekbang.org/"]]];
+    [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.jianshu.com/p/d3c8ba672760"]]];
+    
+    [self.webview addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    self.progressView.progress = self.webview.estimatedProgress;
 }
 -(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     decisionHandler(WKNavigationActionPolicyAllow);
