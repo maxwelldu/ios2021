@@ -11,18 +11,15 @@
 
 @implementation GTListLoader
 
-- (void)loadListData{
+- (void)loadListDataWithFinishBlock:(GTListLoaderFinshBlock)finishBlock{
+    //    [[AFHTTPSessionManager manager] GET:urlString parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    //        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    //        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    //        }];
+    
     NSString *urlString = @"http://v.juhe.cn/toutiao/index?type=&page=&page_size=&is_filter=&key=02aa4ab5506caeca816413346ed7f24f";
     // 去掉不使用的警告
     __unused NSURL *listURL = [NSURL URLWithString:urlString];
-    
-//    [[AFHTTPSessionManager manager] GET:urlString parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-//
-//        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//
-//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//
-//        }];
     
     NSURLRequest *listRequest = [NSURLRequest requestWithURL:listURL];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -38,7 +35,13 @@
             [listItem configWithDictionary:info];
             [listItemArray addObject:listItem];
         }
-        NSLog(@"");
+        
+        // 希望所有的回包都是在主线程
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (finishBlock) {
+                finishBlock(error == nil, listItemArray.copy);
+            }
+        });
     }];
     [dataTask resume];
 }

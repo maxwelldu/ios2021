@@ -7,13 +7,18 @@
 
 #import <Foundation/Foundation.h>
 
+// 声明文件，在使用的时候进行引入即可
+@class GTListItem;
+
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void(^GTListLoaderFinshBlock)(BOOL success, NSArray<GTListItem *> *dataArray);
 
 
 /// 列表请求
 @interface GTListLoader : NSObject
 
-- (void)loadListData;
+- (void)loadListDataWithFinishBlock:(GTListLoaderFinshBlock)finishBlock;
 
 @end
 
