@@ -59,6 +59,9 @@
     GTDetailViewController *vc = [[GTDetailViewController alloc] initWithUrlString:item.articleUrl];
     vc.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     [self.navigationController pushViewController:vc animated:YES];
+    
+    // 简单实现已读数据本地存储; 正常情况不要这样用，正常的key可以是has_read这样的key, value存已经点击的内容ID; 实际项目中，阅读记录不建议存储在NSUserDefault中；
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:item.uniqueKey];
 }
 
 // 父组件的delegate也可以实现
