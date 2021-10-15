@@ -10,6 +10,10 @@
 
 @interface GTVideoCoverView()
 
+@property(nonatomic, strong, readwrite) AVPlayerItem *videoItem;
+@property(nonatomic, strong, readwrite) AVPlayer *avPlayer;
+@property(nonatomic, strong, readwrite) AVPlayerLayer *playerLayer;
+
 @property(nonatomic, strong, readwrite) UIImageView *coverView;
 @property(nonatomic, strong, readwrite) UIImageView *playButton;
 @property(nonatomic, copy, readwrite) NSString *videoUrl;
@@ -31,10 +35,18 @@
             
             _playButton;
         })];
+        
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_tapToPlay)];
         [self addGestureRecognizer:tapGesture];
+        
+        // 向整个通知中心注册一个中心化管理，生命周期是整个的生命周期
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handlePlayEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     }
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - public method
@@ -48,16 +60,24 @@
 - (void)_tapToPlay {
     // 一些细的资源，可以详细的处理；如果不需要精细化控制，可以直接生成一个AVPlayer
     NSURL *videoURL = [NSURL URLWithString:_videoUrl];
-//    AVAsset *asset = [AVAsset assetWithURL:videoURL];
-//    AVPlayerItem *videoItem = [AVPlayerItem playerItemWithAsset:asset];
-//    AVPlayer *avPlayer = [AVPlayer playerWithPlayerItem:videoItem];
-    AVPlayer *avPlayer = [AVPlayer playerWithURL:videoURL];
+    AVAsset *asset = [AVAsset assetWithURL:videoURL];
+    _videoItem = [AVPlayerItem playerItemWithAsset:asset];
+    _avPlayer = [AVPlayer playerWithPlayerItem:_videoItem];
+//    AVPlayer *avPlayer = [AVPlayer playerWithURL:videoURL];
     
-    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:avPlayer];
-    playerLayer.frame = _coverView.bounds;
-    [_coverView.layer addSublayer:playerLayer];
+    _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_avPlayer];
+    _playerLayer.frame = _coverView.bounds;
+    [_coverView.layer addSublayer:_playerLayer];
     
-    [avPlayer play];
+    [_avPlayer play];
+}
+
+// 播放完成后将播放器移除
+- (void)_handlePlayEnd{
+    [_playerLayer removeFromSuperlayer];
+    _videoItem = nil;
+    _avPlayer = nil;
+    NSLog(@"");
 }
 
 @end
