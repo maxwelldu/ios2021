@@ -7,6 +7,7 @@
 
 #import "GTDeleteCellView.h"
 
+
 @interface GTDeleteCellView ()
 
 @property(nonatomic, strong, readwrite) UIView *backgroundView;
