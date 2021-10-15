@@ -6,6 +6,7 @@
 //
 
 #import "GTVideoCoverView.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface GTVideoCoverView()
 
@@ -24,7 +25,7 @@
             _coverView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0,frame.size.width, frame.size.height)];
             _coverView;
         })];
-        [self addSubview:({
+        [_coverView addSubview:({
             _playButton = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width - 50)/2, (frame.size.height-50)/2,50, 50)];
             _playButton.image = [UIImage imageNamed:@"videoPlay"];
             
@@ -40,13 +41,23 @@
 - (void)layoutWithVideoCoverUrl:(NSString *)videoCoverUrl videoUrl:(NSString *)videoUrl {
     //真实情况是取第一帧的
     _coverView.image = [UIImage imageNamed:videoCoverUrl];
-    _playButton.image = [UIImage imageNamed:@"videoPlay"];
     _videoUrl = videoUrl;
 }
 
 #pragma mark - private method
 - (void)_tapToPlay {
+    // 一些细的资源，可以详细的处理；如果不需要精细化控制，可以直接生成一个AVPlayer
+    NSURL *videoURL = [NSURL URLWithString:_videoUrl];
+//    AVAsset *asset = [AVAsset assetWithURL:videoURL];
+//    AVPlayerItem *videoItem = [AVPlayerItem playerItemWithAsset:asset];
+//    AVPlayer *avPlayer = [AVPlayer playerWithPlayerItem:videoItem];
+    AVPlayer *avPlayer = [AVPlayer playerWithURL:videoURL];
     
+    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:avPlayer];
+    playerLayer.frame = _coverView.bounds;
+    [_coverView.layer addSublayer:playerLayer];
+    
+    [avPlayer play];
 }
 
 @end

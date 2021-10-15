@@ -49,7 +49,7 @@
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTVideoCoverView" forIndexPath:indexPath];
     if ([cell isKindOfClass:[GTVideoCoverView class]]) {
-        [(GTVideoCoverView *)cell layoutWithVideoCoverUrl:@"videoCover" videoUrl:@"http://clips.vorwaerts-gmbb.de/big_buck_bunny.mp4"];
+        [(GTVideoCoverView *)cell layoutWithVideoCoverUrl:@"videoCover" videoUrl:@"http://vfx.mtime.cn/Video/2019/02/04/mp4/190204084208765161.mp4"];
     }
     return cell;
 }
