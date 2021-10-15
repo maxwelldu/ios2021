@@ -7,10 +7,10 @@
 
 #import "GTNewsViewController.h"
 #import "GTNormalTableViewCell.h"
-#import "GTDetailViewController.h"
 #import "GTDeleteCellView.h"
 #import "GTListLoader.h"
 #import "GTListItem.h"
+#import "GTMediator.h"
 
 @interface GTNewsViewController ()<UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
 @property(nonatomic, strong, readwrite)UITableView *tableView;
@@ -56,9 +56,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GTListItem *item = [self.dataArray objectAtIndex:indexPath.row];
-    GTDetailViewController *vc = [[GTDetailViewController alloc] initWithUrlString:item.articleUrl];
-    vc.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
-    [self.navigationController pushViewController:vc animated:YES];
+    NSLog(@"articleUrl=%@", item.articleUrl);
+    __kindof UIViewController *detailController = [GTMediator detailViewControllerWithUrl:item.articleUrl];
+    detailController.title = item.title;
+    [self.navigationController pushViewController:detailController animated:YES];
     
     // 简单实现已读数据本地存储; 正常情况不要这样用，正常的key可以是has_read这样的key, value存已经点击的内容ID; 实际项目中，阅读记录不建议存储在NSUserDefault中；
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:item.uniqueKey];
