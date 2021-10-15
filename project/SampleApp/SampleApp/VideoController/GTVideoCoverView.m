@@ -47,6 +47,8 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [_videoItem removeObserver:self forKeyPath:@"status"];
+    [_videoItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
 }
 
 #pragma mark - public method
@@ -62,22 +64,48 @@
     NSURL *videoURL = [NSURL URLWithString:_videoUrl];
     AVAsset *asset = [AVAsset assetWithURL:videoURL];
     _videoItem = [AVPlayerItem playerItemWithAsset:asset];
-    _avPlayer = [AVPlayer playerWithPlayerItem:_videoItem];
-//    AVPlayer *avPlayer = [AVPlayer playerWithURL:videoURL];
+    // KVO 对属性的监听
+    [_videoItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+    [_videoItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];
     
+    CMTime duration = _videoItem.duration;
+    CGFloat videoDuration = CMTimeGetSeconds(duration);
+    
+    
+    _avPlayer = [AVPlayer playerWithPlayerItem:_videoItem];
+    [_avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+        NSLog(@"播放进度 %f", CMTimeGetSeconds(time));
+    }];
+
     _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_avPlayer];
     _playerLayer.frame = _coverView.bounds;
     [_coverView.layer addSublayer:_playerLayer];
     
-    [_avPlayer play];
 }
 
 // 播放完成后将播放器移除
 - (void)_handlePlayEnd{
-    [_playerLayer removeFromSuperlayer];
-    _videoItem = nil;
-    _avPlayer = nil;
+//    [_playerLayer removeFromSuperlayer];
+//    _videoItem = nil;
+//    _avPlayer = nil;
+    [_avPlayer seekToTime:CMTimeMake(0, 1)];
+    [_avPlayer play];
     NSLog(@"");
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString: @"status"]) {
+        if (((NSNumber *)[change objectForKey:NSKeyValueChangeNewKey]).integerValue == AVPlayerItemStatusReadyToPlay) {
+            [_avPlayer play];
+        } else {
+            // 资源加载失败可以处理错误，url的错误，网络的错误等
+            NSLog(@"");
+        }
+    } else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+        NSLog(@"缓冲 %@", [change objectForKey:NSKeyValueChangeNewKey]);
+    }
 }
 
 @end
