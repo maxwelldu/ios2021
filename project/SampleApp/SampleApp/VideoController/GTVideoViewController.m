@@ -36,6 +36,8 @@
     flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width / 16 * 9 + GTVideoToolbarHeight);
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+    // 系统有这个属性会自动适配，如果希望自己控制可以设置为Never，然后手动适配
+//    collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     collectionView.delegate = self;
     collectionView.dataSource = self;
     // 复杂的时候自定义cell, 继承自UICollectionViewCell

@@ -43,7 +43,7 @@
     })];
     [self.view addSubview:({
         //有2像素的问题,88+2
-        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, STATUSBARHEIGHT+44+2, self.view.frame.size.width, 20)];
+        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, STATUSBARHEIGHT+44, self.view.frame.size.width, 20)];
         self.progressView;
     })];
     
