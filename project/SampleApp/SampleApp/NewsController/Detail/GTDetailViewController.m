@@ -7,6 +7,8 @@
 
 #import "GTDetailViewController.h"
 #import <WebKit/WebKit.h>
+#import "GTScreen.h"
+
 
 @interface GTDetailViewController ()<WKNavigationDelegate>
 
@@ -35,13 +37,13 @@
     [super viewDidLoad];
     
     [self.view addSubview:({
-        self.webview = [[WKWebView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height-88)];
+        self.webview = [[WKWebView alloc] initWithFrame:CGRectMake(0, STATUSBARHEIGHT+44, self.view.frame.size.width, self.view.frame.size.height-STATUSBARHEIGHT-44)];
         self.webview.navigationDelegate = self;
         self.webview;
     })];
     [self.view addSubview:({
         //有2像素的问题,88+2
-        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 88+2, 375, 20)];
+        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, STATUSBARHEIGHT+44+2, self.view.frame.size.width, 20)];
         self.progressView;
     })];
     

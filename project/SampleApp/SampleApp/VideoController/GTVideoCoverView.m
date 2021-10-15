@@ -8,6 +8,7 @@
 #import "GTVideoCoverView.h"
 #import "GTVideoPlayer.h"
 #import "GTVideoToolbar.h"
+#import "GTScreen.h"
 
 @interface GTVideoCoverView()
 
@@ -28,7 +29,7 @@
             _coverView;
         })];
         [_coverView addSubview:({
-            _playButton = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width - 50)/2, (frame.size.height-GTVideoToolbarHeight-50)/2,50, 50)];
+            _playButton = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width - UI(50))/2, (frame.size.height-GTVideoToolbarHeight-UI(50))/2,UI(50), UI(50))];
             _playButton.image = [UIImage imageNamed:@"videoPlay"];
             
             _playButton;
