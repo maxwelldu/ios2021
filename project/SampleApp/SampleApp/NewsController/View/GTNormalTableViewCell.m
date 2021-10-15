@@ -7,6 +7,7 @@
 
 #import "GTNormalTableViewCell.h"
 #import "GTListItem.h"
+#import "SDWebImage.h"
 
 @interface GTNormalTableViewCell()
 
@@ -99,14 +100,30 @@
 //    [downloadImageThread start];
     
     //GCD一个最基础的使用
-    dispatch_queue_t downloadQueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_queue_t mainQueue = dispatch_get_main_queue();
-    dispatch_async(downloadQueue, ^{
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
-        dispatch_async(mainQueue, ^{
-            self.rightImageView.image = image;
-        });
-    });
+//    dispatch_queue_t downloadQueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    dispatch_queue_t mainQueue = dispatch_get_main_queue();
+//    dispatch_async(downloadQueue, ^{
+//        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
+//        dispatch_async(mainQueue, ^{
+//            self.rightImageView.image = image;
+//        });
+//    });
+    
+    // 使用SDWebImage
+    [self.rightImageView sd_setImageWithURL:[NSURL URLWithString:item.picUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        NSLog(@"");
+    }];
+    
+    // 对于图片库的修改 & 二次封装
+    /**
+     * 结合App内的通用请求
+     * 特殊的编解码
+     * 大量图片同时渲染
+     * 特殊的裁剪
+     * Cache 策略 & 用户隔离
+     * 本地图片的加载和使用
+     */
+    
 }
 
 - (void) deleteButtonClick {
