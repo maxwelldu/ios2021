@@ -90,9 +90,23 @@
     [self.timeLabel sizeToFit];
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x+self.commentLabel.frame.size.width+15, self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     
-#warning 做一个不是很正确的实现
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
-    self.rightImageView.image = image;
+    // 从网络中获取图片是高耗时的操作，不要直接在主线程执行，而是开启一个新的线程；不然会导致滚动的时候卡顿;
+//    NSThread *downloadImageThread = [[NSThread alloc] initWithBlock:^{
+//        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
+//        self.rightImageView.image = image;
+//    }];
+//    downloadImageThread.name = @"downloadImageThread";
+//    [downloadImageThread start];
+    
+    //GCD一个最基础的使用
+    dispatch_queue_t downloadQueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_queue_t mainQueue = dispatch_get_main_queue();
+    dispatch_async(downloadQueue, ^{
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
+        dispatch_async(mainQueue, ^{
+            self.rightImageView.image = image;
+        });
+    });
 }
 
 - (void) deleteButtonClick {
