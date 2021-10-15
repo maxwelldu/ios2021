@@ -17,6 +17,13 @@
     //        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
     //        }];
     
+    
+    // 有上回的数据就展示上回的数据; 然后继续请求新数据
+    NSArray<GTListItem *> *listData = [self _readDataFromLocal];
+    if (listData) {
+        finishBlock(YES, listData);
+    }
+
     NSString *urlString = @"http://v.juhe.cn/toutiao/index?type=&page=&page_size=&is_filter=&key=02aa4ab5506caeca816413346ed7f24f";
     // 去掉不使用的警告
     __unused NSURL *listURL = [NSURL URLWithString:urlString];
@@ -51,6 +58,23 @@
     }];
     [dataTask resume];
 }
+#pragma mark - private method
+- (NSArray<GTListItem *> *)_readDataFromLocal {
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [pathArray firstObject];
+    NSString *listDataPath = [cachePath stringByAppendingPathComponent:@"GTData/list"];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSData *readListData = [fileManager contentsAtPath:listDataPath];
+    
+    id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:readListData error:nil];
+    if ([unarchiveObj isKindOfClass:[NSArray class]] && [unarchiveObj count] > 0) {
+        return (NSArray<GTListItem *> *)unarchiveObj;
+    }
+    return nil;
+        
+}
 
 - (void) _archiveListDataWithArray:(NSArray<GTListItem *> *)array {
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -72,12 +96,12 @@
     [fileManager createFileAtPath:listDataPath contents:listData attributes:nil];
     
     // 反序列化
-    NSData *readListData = [fileManager contentsAtPath:listDataPath];
-    __unused id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:readListData error:nil];
+//    NSData *readListData = [fileManager contentsAtPath:listDataPath];
+//    __unused id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:readListData error:nil];
     
-    [[NSUserDefaults standardUserDefaults] setObject:listData forKey:@"listData"];
-    NSData *testListData = [[NSUserDefaults standardUserDefaults] dataForKey:@"listData"];
-    id unarchiveObj2 = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:testListData error:nil];
+//    [[NSUserDefaults standardUserDefaults] setObject:listData forKey:@"listData"];
+//    NSData *testListData = [[NSUserDefaults standardUserDefaults] dataForKey:@"listData"];
+//    id unarchiveObj2 = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [GTListItem class], nil] fromData:testListData error:nil];
     
 //    BOOL fileExist = [fileManager fileExistsAtPath:listDataPath];
     
