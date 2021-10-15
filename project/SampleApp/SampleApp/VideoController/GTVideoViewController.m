@@ -6,6 +6,7 @@
 //
 
 #import "GTVideoViewController.h"
+#import "GTVideoCoverView.h"
 
 @interface GTVideoViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -31,13 +32,13 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumLineSpacing = 10;
     flowLayout.minimumInteritemSpacing = 10;
-    flowLayout.itemSize = CGSizeMake((self.view.frame.size.width-18)/2, 300);
+    flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width / 16 * 9);
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     // 复杂的时候自定义cell, 继承自UICollectionViewCell
-    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
+    [collectionView registerClass:[GTVideoCoverView class] forCellWithReuseIdentifier:@"GTVideoCoverView"];
     [self.view addSubview:collectionView];
 }
 
@@ -46,19 +47,21 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GTVideoCoverView" forIndexPath:indexPath];
+    if ([cell isKindOfClass:[GTVideoCoverView class]]) {
+        [(GTVideoCoverView *)cell layoutWithVideoCoverUrl:@"videoCover" videoUrl:@"http://clips.vorwaerts-gmbb.de/big_buck_bunny.mp4"];
+    }
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row
-        % 3 == 0) {
-        return CGSizeMake(self.view.frame.size.width, 100);
-    } else {
-        return CGSizeMake((self.view.frame.size.width - 10)/2, 300);
-    }
-}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.row
+//        % 3 == 0) {
+//        return CGSizeMake(self.view.frame.size.width, 100);
+//    } else {
+//        return CGSizeMake((self.view.frame.size.width - 10)/2, 300);
+//    }
+//}
 
 /*
 #pragma mark - Navigation
