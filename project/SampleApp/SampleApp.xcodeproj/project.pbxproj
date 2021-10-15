@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3ECE66FD271932E5001CF2B2 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */; };
+		3ECE6700271952B3001CF2B2 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FF271952B3001CF2B2 /* GTVideoPlayer.m */; };
 		3EE864DD2716D39600072BF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864DC2716D39600072BF6 /* AppDelegate.m */; };
 		3EE864E02716D39600072BF6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864DF2716D39600072BF6 /* SceneDelegate.m */; };
 		3EE864E32716D39600072BF6 /* GTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864E22716D39600072BF6 /* GTNewsViewController.m */; };
@@ -29,6 +30,8 @@
 		3E3E2E846DD2DA2B360BCF60 /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		3ECE66FB271932E5001CF2B2 /* GTVideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoCoverView.h; sourceTree = "<group>"; };
 		3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoCoverView.m; sourceTree = "<group>"; };
+		3ECE66FE271952B3001CF2B2 /* GTVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoPlayer.h; sourceTree = "<group>"; };
+		3ECE66FF271952B3001CF2B2 /* GTVideoPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoPlayer.m; sourceTree = "<group>"; };
 		3EE864D82716D39600072BF6 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EE864DB2716D39600072BF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3EE864DC2716D39600072BF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 				3EE864F72716EB1A00072BF6 /* GTVideoViewController.m */,
 				3ECE66FB271932E5001CF2B2 /* GTVideoCoverView.h */,
 				3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */,
+				3ECE66FE271952B3001CF2B2 /* GTVideoPlayer.h */,
+				3ECE66FF271952B3001CF2B2 /* GTVideoPlayer.m */,
 			);
 			path = VideoController;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 				3EE864DD2716D39600072BF6 /* AppDelegate.m in Sources */,
 				3EE864EE2716D39900072BF6 /* main.m in Sources */,
 				3EE864E02716D39600072BF6 /* SceneDelegate.m in Sources */,
+				3ECE6700271952B3001CF2B2 /* GTVideoPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
