@@ -55,6 +55,13 @@
 }
 
 - (void)viewClick {
+    NSURL *urlScheme = [NSURL URLWithString:@"testscheme://"];
+    //判断是否安装了；需要在白名单中
+    BOOL canOpenURL = [[UIApplication sharedApplication] canOpenURL:urlScheme];
+    // 对于广告，可能会总是打开, 然后在completionHandler里面去处理；
+    [[UIApplication sharedApplication] openURL:urlScheme options:nil completionHandler:^(BOOL success) {
+        NSLog(@"");
+    }];
     NSLog(@"viewclick");
 }
 
