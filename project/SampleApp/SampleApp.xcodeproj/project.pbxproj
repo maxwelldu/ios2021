@@ -11,11 +11,11 @@
 		3ECE6700271952B3001CF2B2 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FF271952B3001CF2B2 /* GTVideoPlayer.m */; };
 		3ECE670327195AA2001CF2B2 /* GTVideoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE670227195AA2001CF2B2 /* GTVideoToolbar.m */; };
 		3ECE670627196D7D001CF2B2 /* GTScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE670527196D7D001CF2B2 /* GTScreen.m */; };
+		3ECE670927198683001CF2B2 /* GTSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE670827198683001CF2B2 /* GTSplashView.m */; };
 		3EE864DD2716D39600072BF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864DC2716D39600072BF6 /* AppDelegate.m */; };
 		3EE864E02716D39600072BF6 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864DF2716D39600072BF6 /* SceneDelegate.m */; };
 		3EE864E32716D39600072BF6 /* GTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864E22716D39600072BF6 /* GTNewsViewController.m */; };
 		3EE864E82716D39900072BF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EE864E72716D39900072BF6 /* Assets.xcassets */; };
-		3EE864EB2716D39900072BF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE864E92716D39900072BF6 /* LaunchScreen.storyboard */; };
 		3EE864EE2716D39900072BF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864ED2716D39900072BF6 /* main.m */; };
 		3EE864F52716DFE900072BF6 /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3EE864F42716DFE900072BF6 /* icon.bundle */; };
 		3EE864F82716EB1A00072BF6 /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE864F72716EB1A00072BF6 /* GTVideoViewController.m */; };
@@ -38,6 +38,8 @@
 		3ECE670227195AA2001CF2B2 /* GTVideoToolbar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoToolbar.m; sourceTree = "<group>"; };
 		3ECE670427196D7D001CF2B2 /* GTScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTScreen.h; sourceTree = "<group>"; };
 		3ECE670527196D7D001CF2B2 /* GTScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTScreen.m; sourceTree = "<group>"; };
+		3ECE670727198683001CF2B2 /* GTSplashView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTSplashView.h; sourceTree = "<group>"; };
+		3ECE670827198683001CF2B2 /* GTSplashView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTSplashView.m; sourceTree = "<group>"; };
 		3EE864D82716D39600072BF6 /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EE864DB2716D39600072BF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3EE864DC2716D39600072BF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -46,7 +48,6 @@
 		3EE864E12716D39600072BF6 /* GTNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNewsViewController.h; sourceTree = "<group>"; };
 		3EE864E22716D39600072BF6 /* GTNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNewsViewController.m; sourceTree = "<group>"; };
 		3EE864E72716D39900072BF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3EE864EA2716D39900072BF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EE864EC2716D39900072BF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EE864ED2716D39900072BF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3EE864F42716DFE900072BF6 /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
@@ -125,7 +126,6 @@
 				3EE864DE2716D39600072BF6 /* SceneDelegate.h */,
 				3EE864DF2716D39600072BF6 /* SceneDelegate.m */,
 				3EE864E72716D39900072BF6 /* Assets.xcassets */,
-				3EE864E92716D39900072BF6 /* LaunchScreen.storyboard */,
 				3EE864EC2716D39900072BF6 /* Info.plist */,
 				3EE864ED2716D39900072BF6 /* main.m */,
 				3EE864F92716F06300072BF6 /* GTRecommendViewController.h */,
@@ -133,6 +133,8 @@
 				3EE865052717E2B200072BF6 /* README.md */,
 				3ECE670427196D7D001CF2B2 /* GTScreen.h */,
 				3ECE670527196D7D001CF2B2 /* GTScreen.m */,
+				3ECE670727198683001CF2B2 /* GTSplashView.h */,
+				3ECE670827198683001CF2B2 /* GTSplashView.m */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -262,7 +264,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EE864EB2716D39900072BF6 /* LaunchScreen.storyboard in Resources */,
 				3EE864E82716D39900072BF6 /* Assets.xcassets in Resources */,
 				3EE864F52716DFE900072BF6 /* icon.bundle in Resources */,
 			);
@@ -310,6 +311,7 @@
 				3ECE670327195AA2001CF2B2 /* GTVideoToolbar.m in Sources */,
 				3EE8650A2717E66F00072BF6 /* GTListLoader.m in Sources */,
 				3EE865112717F84800072BF6 /* GTListItem.m in Sources */,
+				3ECE670927198683001CF2B2 /* GTSplashView.m in Sources */,
 				3EE864FB2716F06300072BF6 /* GTRecommendViewController.m in Sources */,
 				3EE864DD2716D39600072BF6 /* AppDelegate.m in Sources */,
 				3EE864EE2716D39900072BF6 /* main.m in Sources */,
@@ -319,17 +321,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		3EE864E92716D39900072BF6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3EE864EA2716D39900072BF6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3EE864EF2716D39900072BF6 /* Debug */ = {
@@ -450,6 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SampleApp/Info.plist;
@@ -469,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SampleApp/Info.plist;

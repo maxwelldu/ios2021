@@ -39,22 +39,24 @@
         id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
         
 #warning 类型的检查
-        NSArray *dataArray = [((NSDictionary *)[((NSDictionary *)jsonObj) objectForKey:@"result"]) objectForKey:@"data"] ;
-        NSMutableArray *listItemArray = @[].mutableCopy;
-        for(NSDictionary *info in dataArray) {
-            GTListItem *listItem = [[GTListItem alloc] init];
-            [listItem configWithDictionary:info];
-            [listItemArray addObject:listItem];
-        }
-        
-        [weakSelf _archiveListDataWithArray:listItemArray.copy];
-        
-        // 希望所有的回包都是在主线程
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (finishBlock) {
-                finishBlock(error == nil, listItemArray.copy);
+        if ([[jsonObj objectForKey:@"result"] isKindOfClass:[NSDictionary class]]) {
+            NSArray *dataArray = [((NSDictionary *)[((NSDictionary *)jsonObj) objectForKey:@"result"]) objectForKey:@"data"] ;
+            NSMutableArray *listItemArray = @[].mutableCopy;
+            for(NSDictionary *info in dataArray) {
+                GTListItem *listItem = [[GTListItem alloc] init];
+                [listItem configWithDictionary:info];
+                [listItemArray addObject:listItem];
             }
-        });
+
+            [weakSelf _archiveListDataWithArray:listItemArray.copy];
+
+            // 希望所有的回包都是在主线程
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (finishBlock) {
+                    finishBlock(error == nil, listItemArray.copy);
+                }
+            });
+        }
     }];
     [dataTask resume];
 }

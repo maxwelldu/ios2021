@@ -9,6 +9,7 @@
 #import "GTNewsViewController.h"
 #import "GTVideoViewController.h"
 #import "GTRecommendViewController.h"
+#import "GTSplashView.h"
 
 @interface AppDelegate ()
 
@@ -46,6 +47,11 @@
     
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
+    [self.window addSubview:({
+        GTSplashView *splashView = [[GTSplashView alloc] initWithFrame:self.window.bounds];
+        splashView;
+    })];
     return YES;
 }
 
