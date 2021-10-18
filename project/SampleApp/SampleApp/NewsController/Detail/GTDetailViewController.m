@@ -8,6 +8,7 @@
 #import "GTDetailViewController.h"
 #import <WebKit/WebKit.h>
 #import "GTScreen.h"
+#import "GTMediator.h"
 
 
 @interface GTDetailViewController ()<WKNavigationDelegate>
@@ -19,6 +20,17 @@
 @end
 
 @implementation GTDetailViewController
+
+// 对于类的装载，就是每个类都会调用它的load函数，实现一个在mediator中的注册，对应的是scheme的这种解耦方式
++(void)load{
+    [GTMediator registerScheme:@"detail://" processBlock:^(NSDictionary * _Nonnull params) {
+        NSString *url = (NSString *)[params objectForKey:@"url"];
+        UINavigationController *navigationController = (UINavigationController *)[params objectForKey:@"controller"];
+        GTDetailViewController *controller = [[GTDetailViewController alloc] initWithUrlString:url];
+//        controller.title = @"";
+        [navigationController pushViewController:controller animated:YES];
+    }];
+}
 
 - (void)dealloc
 {
