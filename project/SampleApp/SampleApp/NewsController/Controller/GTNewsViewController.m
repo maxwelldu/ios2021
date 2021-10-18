@@ -61,7 +61,11 @@
 //    [self.navigationController pushViewController:detailController animated:YES];
     
     // 第二种方法，通过scheme解耦
-    [GTMediator openUrl:@"detail://" params:@{@"url":item.articleUrl,@"controller":self.navigationController}];
+//    [GTMediator openUrl:@"detail://" params:@{@"url":item.articleUrl,@"controller":self.navigationController}];
+    
+    // 第三种方法; 使用协议包装起来，面向协议编程
+    Class cls = [GTMediator classForProtol:@protocol(GTDetailViewControllerProtocol)];
+    [self.navigationController pushViewController:[[cls alloc] detailViewControllerWithUrl :item.articleUrl] animated:YES]; 
     
     // 简单实现已读数据本地存储; 正常情况不要这样用，正常的key可以是has_read这样的key, value存已经点击的内容ID; 实际项目中，阅读记录不建议存储在NSUserDefault中；
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:item.uniqueKey];
