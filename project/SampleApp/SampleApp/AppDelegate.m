@@ -11,6 +11,7 @@
 #import "GTRecommendViewController.h"
 #import "GTSplashView.h"
 #import "GTStaticTest.h"
+#import <GTFramework/GTFrameworkClass.h>
 
 @interface AppDelegate ()
 
@@ -56,6 +57,9 @@
     
     // static
 //    [[GTStaticTest alloc] init];
+    
+    //framework
+    [[GTFrameworkClass alloc] init];
     return YES;
 }
 
