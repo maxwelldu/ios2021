@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EBB1D9E271D9D2E00C3A850 /* libGTStatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EBB1D9B271D9D2E00C3A850 /* libGTStatic.a */; };
 		3ECE66FD271932E5001CF2B2 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */; };
 		3ECE6700271952B3001CF2B2 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FF271952B3001CF2B2 /* GTVideoPlayer.m */; };
 		3ECE670327195AA2001CF2B2 /* GTVideoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE670227195AA2001CF2B2 /* GTVideoToolbar.m */; };
@@ -31,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		3E3E2E846DD2DA2B360BCF60 /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		3EBB1D9B271D9D2E00C3A850 /* libGTStatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTStatic.a; sourceTree = "<group>"; };
+		3EBB1D9C271D9D2E00C3A850 /* GTStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTStatic.h; sourceTree = "<group>"; };
+		3EBB1D9D271D9D2E00C3A850 /* GTStaticTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTStaticTest.h; sourceTree = "<group>"; };
 		3ECE66FB271932E5001CF2B2 /* GTVideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoCoverView.h; sourceTree = "<group>"; };
 		3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoCoverView.m; sourceTree = "<group>"; };
 		3ECE66FE271952B3001CF2B2 /* GTVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoPlayer.h; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EBB1D9E271D9D2E00C3A850 /* libGTStatic.a in Frameworks */,
 				6C8C6A5028702DCA5B037E69 /* libPods-SampleApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +90,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EBB1D9A271D9D0B00C3A850 /* GTFramework */ = {
+			isa = PBXGroup;
+			children = (
+				3EBB1D9C271D9D2E00C3A850 /* GTStatic.h */,
+				3EBB1D9D271D9D2E00C3A850 /* GTStaticTest.h */,
+				3EBB1D9B271D9D2E00C3A850 /* libGTStatic.a */,
+			);
+			path = GTFramework;
+			sourceTree = "<group>";
+		};
 		3ECE66FA27193228001CF2B2 /* VideoController */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +136,7 @@
 		3EE864DA2716D39600072BF6 /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				3EBB1D9A271D9D0B00C3A850 /* GTFramework */,
 				3ECE66FA27193228001CF2B2 /* VideoController */,
 				3EE865062717E3B000072BF6 /* NewsController */,
 				3EE864F42716DFE900072BF6 /* icon.bundle */,
@@ -455,6 +471,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SampleApp/GTFramework",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dcj.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -474,6 +494,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SampleApp/GTFramework",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dcj.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -10,6 +10,7 @@
 #import "GTVideoViewController.h"
 #import "GTRecommendViewController.h"
 #import "GTSplashView.h"
+#import "GTStaticTest.h"
 
 @interface AppDelegate ()
 
@@ -52,6 +53,9 @@
         GTSplashView *splashView = [[GTSplashView alloc] initWithFrame:self.window.bounds];
         splashView;
     })];
+    
+    // static
+//    [[GTStaticTest alloc] init];
     return YES;
 }
 
