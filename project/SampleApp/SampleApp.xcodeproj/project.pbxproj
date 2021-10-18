@@ -10,6 +10,8 @@
 		3EBB1D9E271D9D2E00C3A850 /* libGTStatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EBB1D9B271D9D2E00C3A850 /* libGTStatic.a */; };
 		3EBB1DC9271DA04F00C3A850 /* GTFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EBB1DC7271D9FEA00C3A850 /* GTFramework.framework */; };
 		3EBB1DCA271DA04F00C3A850 /* GTFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EBB1DC7271D9FEA00C3A850 /* GTFramework.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3EBB1DCF271DA44D00C3A850 /* GTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DCE271DA44D00C3A850 /* GTMineViewController.m */; };
+		3EBB1DD2271DA78B00C3A850 /* GTLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DD1271DA78B00C3A850 /* GTLogin.m */; };
 		3ECE66FD271932E5001CF2B2 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */; };
 		3ECE6700271952B3001CF2B2 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FF271952B3001CF2B2 /* GTVideoPlayer.m */; };
 		3ECE670327195AA2001CF2B2 /* GTVideoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE670227195AA2001CF2B2 /* GTVideoToolbar.m */; };
@@ -52,6 +54,11 @@
 		3EBB1D9C271D9D2E00C3A850 /* GTStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTStatic.h; sourceTree = "<group>"; };
 		3EBB1D9D271D9D2E00C3A850 /* GTStaticTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTStaticTest.h; sourceTree = "<group>"; };
 		3EBB1DC7271D9FEA00C3A850 /* GTFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTFramework.framework; sourceTree = "<group>"; };
+		3EBB1DCD271DA44D00C3A850 /* GTMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMineViewController.h; sourceTree = "<group>"; };
+		3EBB1DCE271DA44D00C3A850 /* GTMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMineViewController.m; sourceTree = "<group>"; };
+		3EBB1DD0271DA78B00C3A850 /* GTLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTLogin.h; sourceTree = "<group>"; };
+		3EBB1DD1271DA78B00C3A850 /* GTLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLogin.m; sourceTree = "<group>"; };
+		3EBB1DD7271DAB4900C3A850 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3ECE66FB271932E5001CF2B2 /* GTVideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoCoverView.h; sourceTree = "<group>"; };
 		3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoCoverView.m; sourceTree = "<group>"; };
 		3ECE66FE271952B3001CF2B2 /* GTVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoPlayer.h; sourceTree = "<group>"; };
@@ -119,6 +126,17 @@
 			path = GTFramework;
 			sourceTree = "<group>";
 		};
+		3EBB1DCC271DA43600C3A850 /* MineController */ = {
+			isa = PBXGroup;
+			children = (
+				3EBB1DCD271DA44D00C3A850 /* GTMineViewController.h */,
+				3EBB1DCE271DA44D00C3A850 /* GTMineViewController.m */,
+				3EBB1DD0271DA78B00C3A850 /* GTLogin.h */,
+				3EBB1DD1271DA78B00C3A850 /* GTLogin.m */,
+			);
+			path = MineController;
+			sourceTree = "<group>";
+		};
 		3ECE66FA27193228001CF2B2 /* VideoController */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +173,7 @@
 		3EE864DA2716D39600072BF6 /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				3EBB1DCC271DA43600C3A850 /* MineController */,
 				3EBB1D9A271D9D0B00C3A850 /* GTFramework */,
 				3ECE66FA27193228001CF2B2 /* VideoController */,
 				3EE865062717E3B000072BF6 /* NewsController */,
@@ -242,6 +261,7 @@
 		749F7C1C5F6253BA6E4B3342 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3EBB1DD7271DAB4900C3A850 /* SystemConfiguration.framework */,
 				54B825A6F661560D18580962 /* libPods-SampleApp.a */,
 			);
 			name = Frameworks;
@@ -348,10 +368,12 @@
 				3EE865042717D3E400072BF6 /* GTDeleteCellView.m in Sources */,
 				3EE864FE2716F46000072BF6 /* GTNormalTableViewCell.m in Sources */,
 				3EE864E32716D39600072BF6 /* GTNewsViewController.m in Sources */,
+				3EBB1DD2271DA78B00C3A850 /* GTLogin.m in Sources */,
 				3ECE67312719941D001CF2B2 /* GTMediator.m in Sources */,
 				3EE864F82716EB1A00072BF6 /* GTVideoViewController.m in Sources */,
 				3ECE670327195AA2001CF2B2 /* GTVideoToolbar.m in Sources */,
 				3EE8650A2717E66F00072BF6 /* GTListLoader.m in Sources */,
+				3EBB1DCF271DA44D00C3A850 /* GTMineViewController.m in Sources */,
 				3EE865112717F84800072BF6 /* GTListItem.m in Sources */,
 				3ECE670927198683001CF2B2 /* GTSplashView.m in Sources */,
 				3EE864FB2716F06300072BF6 /* GTRecommendViewController.m in Sources */,
@@ -484,7 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -499,8 +521,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SampleApp/GTFramework",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-fobjc-arc",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dcj.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -512,7 +544,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -527,8 +559,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SampleApp/GTFramework",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-fobjc-arc",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dcj.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
