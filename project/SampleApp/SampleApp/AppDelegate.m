@@ -66,6 +66,17 @@
     NSLog(@"did select");
 }
 
+#pragma mark -
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    //GTNotification中实现；都收敛到对应的业务模块当中
+    NSLog(@"");
+}
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"");
+}
+
+#pragma mark -
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     return YES;
