@@ -15,6 +15,7 @@
 #import "GTMineViewController.h"
 #import <execinfo.h>
 #import "GTLocation.h"
+#import "GTNotification.h"
 
 @interface AppDelegate ()
 
@@ -57,6 +58,7 @@
 //    [@[].mutableCopy addObject:nil]; //make a crash
     
     [[GTLocation locationManager] checkLocationAuthorization];
+    [[GTNotification notificationManager] checkNotificationAuthorization];
     return YES;
 }
 
