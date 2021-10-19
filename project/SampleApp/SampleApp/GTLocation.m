@@ -48,8 +48,23 @@
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
     if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         //
+        [self.manager stopUpdatingLocation];
     } else if (status == kCLAuthorizationStatusDenied) {
         //
     }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    NSLog(@"");
+    
+    // 地理信息；包含经度纬度，海拔等
+    CLLocation *location = [locations firstObject];
+    
+    CLGeocoder *coder = [[CLGeocoder alloc] init];
+    [coder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        // 地标信息
+        // 使用
+    }];
+    [self.manager stopUpdatingLocation];
 }
 @end
