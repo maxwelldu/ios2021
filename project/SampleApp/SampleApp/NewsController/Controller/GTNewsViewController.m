@@ -11,6 +11,8 @@
 #import "GTListLoader.h"
 #import "GTListItem.h"
 #import "GTMediator.h"
+#import "GTSearchBar.h"
+#import "GTScreen.h"
 
 @interface GTNewsViewController ()<UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
 @property(nonatomic, strong, readwrite)UITableView *tableView;
@@ -50,6 +52,16 @@
         strongSelf.dataArray = dataArray;
         [strongSelf.tableView reloadData];
     }];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    // 为什么不直接addSubview; 因为在切换的时候直接加，这个会一直在
+    [self.tabBarController.navigationItem setTitleView:({
+        GTSearchBar *searchBar = [[GTSearchBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - UI(20), self.navigationController.navigationBar.bounds.size.height)];
+        searchBar;
+    })];
 }
 
 #pragma mark - UITableViewDelegate

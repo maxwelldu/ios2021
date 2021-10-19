@@ -59,6 +59,10 @@
     
     [[GTLocation locationManager] checkLocationAuthorization];
     [[GTNotification notificationManager] checkNotificationAuthorization];
+    
+    // 手动设置badge
+    // 实际操作点击之后，-1
+//    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     return YES;
 }
 

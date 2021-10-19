@@ -11,6 +11,8 @@
 		3EBB1DD2271DA78B00C3A850 /* GTLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DD1271DA78B00C3A850 /* GTLogin.m */; };
 		3EBB1DE0271E74FD00C3A850 /* GTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DDF271E74FD00C3A850 /* GTLocation.m */; };
 		3EBB1DE3271E7FBC00C3A850 /* GTNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DE2271E7FBC00C3A850 /* GTNotification.m */; };
+		3EBB1DF5271E8C8500C3A850 /* GTToday.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DF0271E8C8200C3A850 /* GTToday.intentdefinition */; };
+		3EBB1DFF271E902300C3A850 /* GTSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DFE271E902300C3A850 /* GTSearchBar.m */; };
 		3ECE66FD271932E5001CF2B2 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */; };
 		3ECE6700271952B3001CF2B2 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FF271952B3001CF2B2 /* GTVideoPlayer.m */; };
 		3ECE670327195AA2001CF2B2 /* GTVideoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE670227195AA2001CF2B2 /* GTVideoToolbar.m */; };
@@ -33,6 +35,19 @@
 		6C8C6A5028702DCA5B037E69 /* libPods-SampleApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B825A6F661560D18580962 /* libPods-SampleApp.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3EBB1DFC271E8C8500C3A850 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3E3E2E846DD2DA2B360BCF60 /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		3EBB1D9B271D9D2E00C3A850 /* libGTStatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTStatic.a; sourceTree = "<group>"; };
@@ -48,6 +63,14 @@
 		3EBB1DDF271E74FD00C3A850 /* GTLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLocation.m; sourceTree = "<group>"; };
 		3EBB1DE1271E7FBC00C3A850 /* GTNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNotification.h; sourceTree = "<group>"; };
 		3EBB1DE2271E7FBC00C3A850 /* GTNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNotification.m; sourceTree = "<group>"; };
+		3EBB1DE9271E8C8200C3A850 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		3EBB1DEB271E8C8200C3A850 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		3EBB1DEE271E8C8200C3A850 /* GTToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTToday.swift; sourceTree = "<group>"; };
+		3EBB1DF0271E8C8200C3A850 /* GTToday.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = GTToday.intentdefinition; sourceTree = "<group>"; };
+		3EBB1DF1271E8C8500C3A850 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3EBB1DF3271E8C8500C3A850 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EBB1DFD271E902300C3A850 /* GTSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTSearchBar.h; sourceTree = "<group>"; };
+		3EBB1DFE271E902300C3A850 /* GTSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTSearchBar.m; sourceTree = "<group>"; };
 		3ECE66FB271932E5001CF2B2 /* GTVideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoCoverView.h; sourceTree = "<group>"; };
 		3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoCoverView.m; sourceTree = "<group>"; };
 		3ECE66FE271952B3001CF2B2 /* GTVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoPlayer.h; sourceTree = "<group>"; };
@@ -124,6 +147,17 @@
 			path = MineController;
 			sourceTree = "<group>";
 		};
+		3EBB1DED271E8C8200C3A850 /* GTToday */ = {
+			isa = PBXGroup;
+			children = (
+				3EBB1DEE271E8C8200C3A850 /* GTToday.swift */,
+				3EBB1DF0271E8C8200C3A850 /* GTToday.intentdefinition */,
+				3EBB1DF1271E8C8500C3A850 /* Assets.xcassets */,
+				3EBB1DF3271E8C8500C3A850 /* Info.plist */,
+			);
+			path = GTToday;
+			sourceTree = "<group>";
+		};
 		3ECE66FA27193228001CF2B2 /* VideoController */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				3EE864DA2716D39600072BF6 /* SampleApp */,
+				3EBB1DED271E8C8200C3A850 /* GTToday */,
 				3EE864D92716D39600072BF6 /* Products */,
 				40A30DCB5BA1C112D807F62D /* Pods */,
 				749F7C1C5F6253BA6E4B3342 /* Frameworks */,
@@ -227,6 +262,8 @@
 				3EE864FD2716F46000072BF6 /* GTNormalTableViewCell.m */,
 				3EE865022717D3E400072BF6 /* GTDeleteCellView.h */,
 				3EE865032717D3E400072BF6 /* GTDeleteCellView.m */,
+				3EBB1DFD271E902300C3A850 /* GTSearchBar.h */,
+				3EBB1DFE271E902300C3A850 /* GTSearchBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,6 +291,8 @@
 			children = (
 				3EBB1DD7271DAB4900C3A850 /* SystemConfiguration.framework */,
 				54B825A6F661560D18580962 /* libPods-SampleApp.a */,
+				3EBB1DE9271E8C8200C3A850 /* WidgetKit.framework */,
+				3EBB1DEB271E8C8200C3A850 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,6 +308,7 @@
 				3EE864D42716D39600072BF6 /* Sources */,
 				3EE864D52716D39600072BF6 /* Frameworks */,
 				3EE864D62716D39600072BF6 /* Resources */,
+				3EBB1DFC271E8C8500C3A850 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -285,6 +325,7 @@
 		3EE864D02716D39600072BF6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					3EE864D72716D39600072BF6 = {
@@ -354,6 +395,7 @@
 			files = (
 				3ECE670627196D7D001CF2B2 /* GTScreen.m in Sources */,
 				3EE865012716FD6000072BF6 /* GTDetailViewController.m in Sources */,
+				3EBB1DFF271E902300C3A850 /* GTSearchBar.m in Sources */,
 				3ECE66FD271932E5001CF2B2 /* GTVideoCoverView.m in Sources */,
 				3EE865042717D3E400072BF6 /* GTDeleteCellView.m in Sources */,
 				3EE864FE2716F46000072BF6 /* GTNormalTableViewCell.m in Sources */,
@@ -363,6 +405,7 @@
 				3EE864F82716EB1A00072BF6 /* GTVideoViewController.m in Sources */,
 				3ECE670327195AA2001CF2B2 /* GTVideoToolbar.m in Sources */,
 				3EE8650A2717E66F00072BF6 /* GTListLoader.m in Sources */,
+				3EBB1DF5271E8C8500C3A850 /* GTToday.intentdefinition in Sources */,
 				3EBB1DCF271DA44D00C3A850 /* GTMineViewController.m in Sources */,
 				3EE865112717F84800072BF6 /* GTListItem.m in Sources */,
 				3ECE670927198683001CF2B2 /* GTSplashView.m in Sources */,
@@ -495,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F45F5B07F6CE27E5018B4E7A /* Pods-SampleApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -534,6 +578,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E3E2E846DD2DA2B360BCF60 /* Pods-SampleApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
