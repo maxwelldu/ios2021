@@ -13,6 +13,7 @@
 #import "GTMediator.h"
 #import "GTSearchBar.h"
 #import "GTScreen.h"
+#import "GTCommentManager.h"
 
 @interface GTNewsViewController ()<UITableViewDataSource, UITableViewDelegate, GTNormalTableViewCellDelegate>
 @property(nonatomic, strong, readwrite)UITableView *tableView;
@@ -59,8 +60,11 @@
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     // 为什么不直接addSubview; 因为在切换的时候直接加，这个会一直在
     [self.tabBarController.navigationItem setTitleView:({
-        GTSearchBar *searchBar = [[GTSearchBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - UI(20), self.navigationController.navigationBar.bounds.size.height)];
-        searchBar;
+//        GTSearchBar *searchBar = [[GTSearchBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - UI(20), self.navigationController.navigationBar.bounds.size.height)];
+//        searchBar;
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-UI(20), self.navigationController.navigationBar.bounds.size.height)];
+        [button addTarget:self action:@selector(_showCommentView) forControlEvents:UIControlEventTouchUpInside];
+        button;
     })];
 }
 
@@ -122,6 +126,11 @@
 //        [strongSelf.dataArray removeLastObject];
 //        [strongSelf.tableView deleteRowsAtIndexPaths:@[[strongSelf.tableView indexPathForCell:tableViewCell]] withRowAnimation:(UITableViewRowAnimationAutomatic)];
 //    }];
+}
+
+#pragma mark -
+-(void)_showCommentView{
+    [[GTCommentManager sharedManager] showCommentView];
 }
 
 @end

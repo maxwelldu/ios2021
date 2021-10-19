@@ -13,6 +13,7 @@
 		3EBB1DE3271E7FBC00C3A850 /* GTNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DE2271E7FBC00C3A850 /* GTNotification.m */; };
 		3EBB1DF5271E8C8500C3A850 /* GTToday.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DF0271E8C8200C3A850 /* GTToday.intentdefinition */; };
 		3EBB1DFF271E902300C3A850 /* GTSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DFE271E902300C3A850 /* GTSearchBar.m */; };
+		3EBB1E02271EAA2200C3A850 /* GTCommentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1E01271EAA2200C3A850 /* GTCommentManager.m */; };
 		3ECE66FD271932E5001CF2B2 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */; };
 		3ECE6700271952B3001CF2B2 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FF271952B3001CF2B2 /* GTVideoPlayer.m */; };
 		3ECE670327195AA2001CF2B2 /* GTVideoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE670227195AA2001CF2B2 /* GTVideoToolbar.m */; };
@@ -71,6 +72,8 @@
 		3EBB1DF3271E8C8500C3A850 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EBB1DFD271E902300C3A850 /* GTSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTSearchBar.h; sourceTree = "<group>"; };
 		3EBB1DFE271E902300C3A850 /* GTSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTSearchBar.m; sourceTree = "<group>"; };
+		3EBB1E00271EAA2200C3A850 /* GTCommentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTCommentManager.h; sourceTree = "<group>"; };
+		3EBB1E01271EAA2200C3A850 /* GTCommentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTCommentManager.m; sourceTree = "<group>"; };
 		3ECE66FB271932E5001CF2B2 /* GTVideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoCoverView.h; sourceTree = "<group>"; };
 		3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoCoverView.m; sourceTree = "<group>"; };
 		3ECE66FE271952B3001CF2B2 /* GTVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoPlayer.h; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 				3EE865032717D3E400072BF6 /* GTDeleteCellView.m */,
 				3EBB1DFD271E902300C3A850 /* GTSearchBar.h */,
 				3EBB1DFE271E902300C3A850 /* GTSearchBar.m */,
+				3EBB1E00271EAA2200C3A850 /* GTCommentManager.h */,
+				3EBB1E01271EAA2200C3A850 /* GTCommentManager.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -399,6 +404,7 @@
 				3ECE66FD271932E5001CF2B2 /* GTVideoCoverView.m in Sources */,
 				3EE865042717D3E400072BF6 /* GTDeleteCellView.m in Sources */,
 				3EE864FE2716F46000072BF6 /* GTNormalTableViewCell.m in Sources */,
+				3EBB1E02271EAA2200C3A850 /* GTCommentManager.m in Sources */,
 				3EE864E32716D39600072BF6 /* GTNewsViewController.m in Sources */,
 				3EBB1DD2271DA78B00C3A850 /* GTLogin.m in Sources */,
 				3ECE67312719941D001CF2B2 /* GTMediator.m in Sources */,
