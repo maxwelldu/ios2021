@@ -12,6 +12,7 @@
 		3EBB1DCA271DA04F00C3A850 /* GTFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EBB1DC7271D9FEA00C3A850 /* GTFramework.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3EBB1DCF271DA44D00C3A850 /* GTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DCE271DA44D00C3A850 /* GTMineViewController.m */; };
 		3EBB1DD2271DA78B00C3A850 /* GTLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DD1271DA78B00C3A850 /* GTLogin.m */; };
+		3EBB1DE0271E74FD00C3A850 /* GTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1DDF271E74FD00C3A850 /* GTLocation.m */; };
 		3ECE66FD271932E5001CF2B2 /* GTVideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */; };
 		3ECE6700271952B3001CF2B2 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE66FF271952B3001CF2B2 /* GTVideoPlayer.m */; };
 		3ECE670327195AA2001CF2B2 /* GTVideoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECE670227195AA2001CF2B2 /* GTVideoToolbar.m */; };
@@ -59,6 +60,8 @@
 		3EBB1DD0271DA78B00C3A850 /* GTLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTLogin.h; sourceTree = "<group>"; };
 		3EBB1DD1271DA78B00C3A850 /* GTLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLogin.m; sourceTree = "<group>"; };
 		3EBB1DD7271DAB4900C3A850 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3EBB1DDE271E74FD00C3A850 /* GTLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTLocation.h; sourceTree = "<group>"; };
+		3EBB1DDF271E74FD00C3A850 /* GTLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLocation.m; sourceTree = "<group>"; };
 		3ECE66FB271932E5001CF2B2 /* GTVideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoCoverView.h; sourceTree = "<group>"; };
 		3ECE66FC271932E5001CF2B2 /* GTVideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoCoverView.m; sourceTree = "<group>"; };
 		3ECE66FE271952B3001CF2B2 /* GTVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoPlayer.h; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				3ECE670827198683001CF2B2 /* GTSplashView.m */,
 				3ECE672F2719941D001CF2B2 /* GTMediator.h */,
 				3ECE67302719941D001CF2B2 /* GTMediator.m */,
+				3EBB1DDE271E74FD00C3A850 /* GTLocation.h */,
+				3EBB1DDF271E74FD00C3A850 /* GTLocation.m */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				3EE864EE2716D39900072BF6 /* main.m in Sources */,
 				3EE864E02716D39600072BF6 /* SceneDelegate.m in Sources */,
 				3ECE6700271952B3001CF2B2 /* GTVideoPlayer.m in Sources */,
+				3EBB1DE0271E74FD00C3A850 /* GTLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

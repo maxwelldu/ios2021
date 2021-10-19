@@ -14,6 +14,7 @@
 #import <GTFramework/GTFrameworkClass.h>
 #import "GTMineViewController.h"
 #import <execinfo.h>
+#import "GTLocation.h"
 
 @interface AppDelegate ()
 
@@ -54,6 +55,8 @@
     
     [self _caughtException];
 //    [@[].mutableCopy addObject:nil]; //make a crash
+    
+    [[GTLocation locationManager] checkLocationAuthorization];
     return YES;
 }
 
